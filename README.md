@@ -1,2 +1,2 @@
-# azure-resume
+# CLOUD_RESUME_PROJECT
 azure resume
