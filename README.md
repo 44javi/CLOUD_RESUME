@@ -1,6 +1,6 @@
 # CLOUD_RESUME_PROJECT
-azure resume
+Azure Resume
 
 ## First steps
 - Frontend folder contains the website.
-- main.py contains visitor counter.
+- main.js contains the visitor counter.
