@@ -3,8 +3,7 @@ Azure Resume
 
 ## Process
 - Developed a dynamic and secure resume website using HTML and CSS
-- Hosted website on Microsoft Azure Blob storage for high scalability and reliability
-- Configured HTTPS via Azure CDN and mapped a custom domain name to an Azure CDN endpoint for secure connections
+- Hosted the website on Microsoft Azure using Blob storage
+- Mapped a custom domain name from Cloudfare using their DNS service to an Azure CDN endpoint 
 - Utilized Azure Functions to communicate with Serverless CosmosDB and display data from an API.
-- Streamlined the deployment process using Infrastructure as Code (IaC) and automation via GitHub Actions.
-
+- Built a CI/CD pipeline using GitHub Actions that allows for a streamlined process to automatically push any changes to the code that has passed testing into production.
