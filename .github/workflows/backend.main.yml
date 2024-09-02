@@ -9,7 +9,7 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: GetResumeCounter03  # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: 'Backend'    # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '7.0'              # set this to the dotnet version to use
+  DOTNET_VERSION: '7.0'              
 
 jobs:
   build-and-deploy:
