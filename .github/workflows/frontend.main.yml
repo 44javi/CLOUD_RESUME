@@ -1,36 +1,39 @@
 name: Deploy_Frontend
 # Deploys when push is made from frontend folder
 
+permissions:
+  id-token: write # This is required for requesting the JWT
+
 on:
-    push:
-        branches: [ main ]
-        paths:
-        - 'Frontend/**'
-
-
+  push:
+    branches: [main]
+    paths:
+      - "Frontend/**"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: azure/login@v1
-      with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - uses: actions/checkout@v3
+      - uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-    - name: Upload to blob storage
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
+      - name: Upload to blob storage
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
             az storage blob upload-batch --overwrite --account-name javiergoesintotech --auth-mode key -d '$web' -s Frontend/
-    - name: Purge CDN endpoint
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-           az cdn endpoint purge --content-paths  "/*" --profile-name "resumeforjavier" --name "javiupgrades" --resource-group "storage"
+      - name: Purge CDN endpoint
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az cdn endpoint purge --content-paths  "/*" --profile-name "resumeforjavier" --name "javiupgrades" --resource-group "storage"
 
-  # Azure logout
-    - name: logout
-      run: |
-            az logout
-      if: always()
+      # Azure logout
+      - name: logout
+        run: |
+          az logout
+        if: always()
