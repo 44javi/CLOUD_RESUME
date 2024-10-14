@@ -1,5 +1,4 @@
-# CLOUD_RESUME
-Azure Resume
+# AZURE_CLOUD_RESUME
 
 ## Process
 - Developed a dynamic and secure resume website using HTML and CSS
